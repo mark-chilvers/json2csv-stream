@@ -86,6 +86,7 @@ The following options are supported
  - `keys`: Specify the keys you'd like to output. In the default setting all keys are exported.
  - `eol`: End-of-line marker. Default is the one used by the operating system.
  - `showHeader`: If you don't want the header line in your csv set to `false`. Default is `true`.
+ - `useQuotes`: If you want to surround headers and values with double-quotes set to `true`. Default is `false`.
 
 ### Use optional custom delimiter
 
