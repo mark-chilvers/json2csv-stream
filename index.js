@@ -45,6 +45,7 @@ var MyStream = function(options) {
   this.keys = options.keys;
   this.eol = options.eol || os.EOL;
   this.showHeader = options.showHeader !== false;
+  this.useQuotes = options.useQuotes !== true;
 
   this._headerWritten = false;
   this._header = [];
@@ -117,6 +118,9 @@ MyStream.prototype.writeHeader = function(header) {
   var keys = that.keys || Object.keys(header);
   // iterate over all keys
   var iterator = function(item, callback) {
+    if (that.useQuotes){
+      item = '"' + item + '"';
+    };
     that._header.push(item);
     callback(null);
   };
@@ -150,6 +154,9 @@ MyStream.prototype.writeLine = function(line) {
   // iterate over all keys
   var iterator = function(item, callback) {
     var val = lineObject[item];
+    if (that.useQuotes){
+      val = '"' + val + '"';
+    };
     that._line.push(val);
     callback(null);
   };
