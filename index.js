@@ -45,7 +45,7 @@ var MyStream = function(options) {
   this.keys = options.keys;
   this.eol = options.eol || os.EOL;
   this.showHeader = options.showHeader !== false;
-  this.useQuotes = options.useQuotes !== false;
+  this.useQuotes = options.useQuotes || false;
 
   this._headerWritten = false;
   this._header = [];
